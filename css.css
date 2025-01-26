@@ -11,6 +11,9 @@ img{width: 100%;}
 /*=============*/
 /* General */
 .text-primary{color: var(--clr-primary) !important;}
+.text-white{color: var(--clr-white) !important;}
+.text-hover-primary {transition: 0.2s all ease-in-out;}
+.text-hover-primary:hover {color: var(--clr-primary) !important;}
 /*=============*/
 /* Variables */
 :root{
@@ -236,7 +239,7 @@ body{
   transition: max-height 600ms ease-out, min-height 600ms ease-in;
 }
 @media screen and (max-width: 767.98px) {
-  .mobile-menu{ z-index: 1;}
+  .menu-opened .mobile-menu{ z-index: 1;}
 }
 .menu-opened .mobile-menu{
   -moz-transition: max-height 800ms ease-in, min-height 500ms ease-out;
@@ -276,6 +279,7 @@ body{
   width: 30px;
 	height: 6px;
 	background-color: var(--clr-body);
+	border-radius: 40vw;
 }
 .menu-icon span::before,
 .menu-icon span::after {content: ''; position: absolute;}
@@ -317,6 +321,10 @@ body{
   position: relative;
   padding: 40px 20px 100px;
 }
+@media screen and (max-width: 767.98px){
+    .wsstax-hero-container{padding: 100px 20px;}
+    .wsstax-hero .hero-image {padding-top: 50px;}
+}
 .wsstax-hero-container::before{
   content: '';
   position: absolute;
@@ -332,6 +340,7 @@ body{
   max-width: 100%;
 }
 .wsstax-hero {display: flex; align-items: center;}
+.wsstax-hero .hero-image svg{width: 100%; height: auto;}
 @media screen and (max-width: 767.98px) {.wsstax-hero{flex-wrap: wrap;} .wsstax-hero .hero-content,.wsstax-hero .hero-image{flex: auto;}}
 .hero-content h2{font-size: 40px; font-weight: 700; line-height: 60px; margin-bottom: 20px;}
 .hero-content p{font-size: 16px; font-weight: 400; line-height: 31px; margin-bottom: 30px;}
@@ -405,6 +414,49 @@ body{
 .wsstax-card:hover .about-icon{transform: translate(-100px, -30px) scale(1.5) rotate(-345deg); transition: 0.3s all ease-in-out;}
 .wsstax-card:hover .benefits-icon{transform: translateY(-20px); transition: 0.3s all ease-in-out;}
 /* == == */
+/* BTN Hover */
+.wsstax-btn{position: relative; overflow: hidden; border: 0; transition: 0.2s all ease-in-out;}
+.wsstax-btn:hover{transform: translateY(-3px)}
+.wsstax-btn:active{transform: translateY(2px); outline: 0; box-shadow: none;}
+.wsstax-btn span{z-index: 1}
+.wsstax-btn:before {
+  content: "";
+  z-index: -1 !important;
+  position: absolute;
+  width: 102%;
+  height: 102%;
+  top: 50%;
+  inset-inline-end: -102%;
+  aspect-ratio: 1;
+  border-radius: 40vw;
+  transform: translateY(-50%) scale(1);
+  transform-origin: left center;
+  transition: transform 0.2s ease-in-out;
+  /* border:1px solid var(white); */
+}
+#message{text-align:center;}
+#message p{margin-bottom:0 !important; max-width:100%; width:100%;}
+.wsstax-btn.btn-primary:before{background: var(--clr-body);}
+input.wsstax-btn.btn-dark:hover,
+.wsstax-btn.btn-dark:before{background: var(--clr-primary);}
+.wsstax-btn:hover:before {
+  transform: translateY(-50%) scale(2);
+}
+.wsstax-btn.btn-dark:hover {box-shadow: 0px 2px 0px 1px rgb(0 0 0 / 80%);}
+.wsstax-btn.btn-primary:hover {box-shadow: 0px 2px 0px 1px rgb(211 104 41 / 80%);}
+/* == == */
+/* Cards Hover */
+.wsstax-about .wsstax-card,
+.wsstax-benefits .wsstax-card{transition: 0.4s transform ease-in-out}
+.wsstax-about .wsstax-card:hover {
+  transform: translateY(-10px);
+  transition: 0.4s transform ease-in-out;
+}
+.wsstax-benefits .wsstax-card:hover {
+  transform: rotate(3deg) translateY(-10px);
+  transition: 0.4s transform ease-in-out;
+}
+/* == == */
 
 /* Scroll Top */
 .scrolltop {
@@ -476,4 +528,13 @@ body{
   to {
       margin-bottom: 0;
   }
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+    margin-top: 6px;
+    position: relative;
+    top: 3px;
+    margin-left: 5px;
 }

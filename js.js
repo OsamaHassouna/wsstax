@@ -35,5 +35,23 @@
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
     window.onscroll = function() {scrollToTop()};
+    
+    // Menu Scroll
+    var menuHero = document.querySelector('.nav-hero'),
+        menuAbout = document.querySelector('.nav-about'),
+        menuBenefits = document.querySelector('.nav-benefits'),
+        menuContact = document.querySelector('.nav-contact'),
+        trialTry = document.querySelector('.trial-btn');
+
+    menuHero.onclick = function() {document.getElementById("hero").scrollIntoView();}
+    menuAbout.onclick = function() {document.getElementById("about").scrollIntoView();}
+    menuBenefits.onclick = function() {document.getElementById("benefits").scrollIntoView();}
+    menuContact.onclick = function() {document.getElementById("contact").scrollIntoView();}
+    trialTry.onclick = function() {document.getElementById("contact").scrollIntoView();}
+    
+    
 
 }());
+function trialTry() {
+        document.getElementById("contact").scrollIntoView();
+    }
